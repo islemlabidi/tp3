@@ -15,7 +15,7 @@
     <div class="from-container">
 <form action="store.php" method="post" accept-charset="utf-8">
          
-    <label>firstname<input type="text" name="firstname"></label><br>
+    <label>firstnamea<input type="text" name="firstname"></label><br>
     <label>lastname<input type="text" name="lastname"></label><br>
     <label>email<input type="text" name="email"></label><br>
     <label>phone<input type="number"name="phone" value=""></label><br>
