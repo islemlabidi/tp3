@@ -1,3 +1,11 @@
+<?php 
+//recuperer les informations de l'etudiants par son id 
+include 'dbconnexion.php';
+$id = $_GET['id'];
+$rep = $bd->prepare('SELECT * FROM students where id='.$id); 
+$rep->execute();
+$result = $rep->fetch();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,23 +22,13 @@
 <body>
     <div class="from-container">
 <form action="update.php" method="post" accept-charset="utf-8">
-        <label>Id<input type="text" name="idd"></label><br>
-        <label>firstname<input type="text" name="firstname"></label><br>
-         <label>lastname<input type="text" name="lastname"></label><br>
-         <label>email<input type="text" name="email"></label><br>
-         <label>phone<input type="number"name="phone" value=""></label><br>
+        <label>firstname<input type="text" name="firstname" value="<?php echo $result['firstname'] ?>"></label><br>
+         <label>lastname<input type="text" name="lastname"  value="<?php echo $result['lastname'] ?>"></label><br>
+         <label>email<input type="text" name="email" value="<?php echo $result['email'] ?>"></label><br>
+         <label>phone<input type="number"name="phone" value="<?php echo $result['phone'] ?>"></label><br>
+         <input type="hidden" name="id" value="<?php echo $result['id'] ?>">
          <input type="submit" value="Modifier">
      </form>
-    
-<?php
-       if (!empty($_POST)) {
-        $idd = $_POST['idd'];
-        $mfirstname = $_POST['firstname'];
-        $mlastname = $_POST['lastname'];
-        $memail = $_POST['email'];
-        $mphone = $_POST['phone'];
-    }
-?>
     </div>
 </body>
 </html>

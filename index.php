@@ -26,12 +26,13 @@
         <th>Lastname</th>
         <th>Email</th>
         <th>Phone</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
     </thead> 
 
 
 <a href="create.php" class="btn btn-primary"> Ajouter</a>
-
 <?php
     include 'dbconnexion.php';
      $rep = $bd->query('SELECT * FROM students');
@@ -43,6 +44,8 @@
                 echo "<td>".$donnees['lastname'] . "</td>";
                 echo "<td>".$donnees['email'] . "</td>";
                 echo "<td>".$donnees['phone'] . "</td>";
+				echo "<td><a href='edit.php?id=".$donnees['id']."' class='btn btn-primary'> Update</a></td>";
+				echo "<td><a href='delete.php?id=".$donnees['id']."' class='btn btn-primary'> Delete</a></td>";
               echo "</tr>";
             }
 

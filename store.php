@@ -8,6 +8,7 @@ if (!empty($_POST)) {
     $phone = $_POST['phone'];
 
 }
-$bd->exec("INSERT INTO students(firstname,lastname,email,phone) VALUES ('$firstname','$lastname','$email',$phone)");
-header('Location: index.php');  
+$bd->exec("INSERT INTO students(firstname,lastname,email,phone) 
+		   VALUES ('$firstname','$lastname','$email',$phone)");
+header('Location: index.php');  //redirection
 ?>
